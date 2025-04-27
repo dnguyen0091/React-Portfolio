@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#root
+{
+  font-family: 'JetBrains Mono', monospace;
+}
+
+:root
+{
+  --primary:#111827;
+  --secondary:#1f2937;
+  --tertiary:#374151;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #d1d5db;
+
+
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+
+  --input-bg: #1f2937;
+  --input-border: #4b5563;
+  --input-text: #f9fafb;
+  
+  --button-primary: #3b82f6;
+  --button-primary-hover: #60a5fa;
+  --button-text: #ffffff;
+  
+  --button-secondary: #374151;
+  --button-secondary-hover: #4b5563;
+  --button-secondary-text: #f9fafb;
+}
