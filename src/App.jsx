@@ -1,10 +1,15 @@
 import './App.css'
+import NavigationBar from './Components/navigationBar'
 import './index.css'
+import AboutPage from './Pages/AboutPage'
+import HomePage from './Pages/HomePage'
 function App() {
 
   return (
     <>
-      <div className="bg-green-600">TEST</div>
+      <NavigationBar />
+      <HomePage />
+      <AboutPage />
     </>
   )
 }
