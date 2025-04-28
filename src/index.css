@@ -34,3 +34,9 @@
   --button-secondary-hover: #4b5563;
   --button-secondary-text: #f9fafb;
 }
+
+html,body
+{
+  background-color: var(--primary);
+  color: var(--text-primary);
+}
