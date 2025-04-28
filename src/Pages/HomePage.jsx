@@ -1,4 +1,4 @@
-
+import Resume from "../assets/ResumeDraft.pdf";
 
 
 
@@ -12,14 +12,18 @@ export default function HomePage() {
         console.log("Contact");
     }
     return(
-        <div className="flex flex-col items-center justify-center mt-[40vh]">
-            <p className="text-[40px]">Hello, I'm David.</p>
-            <p className="text-[40px]">I am a passionate Software Engineer.</p>
-            <div className="flex flex-row gap-10 mt-10">
-                <button className="" onClick={handleDownLoadCV()}>Download CV</button>
-                <button className="" onClick={handleContactClick()}>Contact</button>
+        <div className="h-screen">
+            <div className="flex flex-col items-center justify-center mt-[40vh]">
+                <p className="text-[40px]">Hello, I'm David.</p>
+                <p className="text-[40px]">I am a passionate Software Engineer.</p>
+                <div className="flex flex-row gap-10 mt-10">
+                    
+                    <a href={Resume} download="DavidNguyenCV"><button className="border-[var(--button-secondary)] border-2 rounded-xl w-[5vw] bg-[var(--button-primary)] text-[var(--button-text)] p-[0.75rem]" onClick={handleDownLoadCV()}>Download CV</button></a>
+                    <button className="border-[var(--button-secondary)] border-2 rounded-xl w-[5vw] bg-[var(--button-primary)] text-[var(--button-text)] p-[0.75rem]" onClick={handleContactClick()}>Contact Me</button>
+                </div>
             </div>
         </div>
+        
     )
 
 }
