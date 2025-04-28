@@ -1,6 +1,6 @@
 import '../index.css';
 
-export function toggleThemes(type)
+export default function toggleThemes(type)
 {
     if (type === "dark")
     {
