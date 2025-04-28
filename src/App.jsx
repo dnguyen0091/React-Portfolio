@@ -5,13 +5,14 @@ import AboutPage from './Pages/AboutPage'
 import Contact from './Pages/Contact'
 import HomePage from './Pages/HomePage'
 function App() {
-
   return (
     <>
       <NavigationBar />
-      <HomePage />
-      <AboutPage />
-      <Contact/>
+      <div id="home"><HomePage /></div>
+      <div id="about"><AboutPage /></div>
+      <div id="experience">{/* Experience component */}</div>
+      <div id="projects">{/* Projects component */}</div>
+      <div id="contact"><Contact /></div>
     </>
   )
 }

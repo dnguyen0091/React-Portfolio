@@ -11,6 +11,17 @@ export default function NavigationBar() {
     const navRef = useRef(null);
     const socialsRef = useRef(null);
 
+    const handleSectionClick = (section) => {
+        const element = document.getElementById(section);
+        console.log(`Navigating to ${element}`);
+        if (element)
+        {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setNavOpen(false);
+    }
+
+
     // Handle clicks outside to close dropdowns
     useEffect(() => {
         function handleClickOutside(event) {
@@ -70,11 +81,11 @@ export default function NavigationBar() {
                 <div className={`navigateDropDown absolute top-full left-0 mt-4 gap-[2vh] ${navOpen ? 'block' : 'hidden'}`}>
                     <div>
                         <div className="dropItems flex flex-col gap-[2vh] mt-3">
-                            <div>Landing Page</div>
-                            <div>About</div>
-                            <div>Experience</div>
-                            <div>Projects</div>
-                            <div>Contact</div>
+                            <div onClick={() => handleSectionClick('home')}>Landing Page</div>
+                            <div onClick={() => handleSectionClick('about')}>About</div>
+                            <div onClick={() => handleSectionClick('experience')}>Experience</div>
+                            <div onClick={() => handleSectionClick('projects')}>Projects</div>
+                            <div onClick={() => handleSectionClick('contact')}>Contact</div>
                         </div>
                     </div>
                 </div>
