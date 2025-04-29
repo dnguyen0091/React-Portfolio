@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import emailIcon from '../assets/Icons/emailIcon.svg';
 import gitHubIcon from '../assets/Icons/githubIcon.svg';
 import linkedInIcon from '../assets/Icons/linkedInIcon.svg';
+import moonIcon from '../assets/Icons/moon.svg';
+import sunIcon from '../assets/Icons/sun.svg';
+
 import '../index.css';
 import toggleThemes from './toggleThemes';
 
@@ -9,7 +12,9 @@ import toggleThemes from './toggleThemes';
 export default function NavigationBar() {
     const [navOpen, setNavOpen] = useState(false);
     const [socialsOpen, setSocialsOpen] = useState(false);
-    let colorMode="dark";
+
+    const [colorMode, setColorMode] = useState("dark");
+    const[colorImg, setColorImg] = useState(moonIcon);
     const navRef = useRef(null);
     const socialsRef = useRef(null);
 
@@ -60,13 +65,15 @@ export default function NavigationBar() {
         if (colorMode === "dark")
         {
             toggleThemes("light");
-            colorMode = "light";
+            setColorMode("light");
+            setColorImg(sunIcon);
             console.log(colorMode);
         }
         else
         {
             toggleThemes("dark");
-            colorMode = "dark";
+            setColorImg(moonIcon);
+            setColorMode("dark");
             console.log(colorMode);
         }
 
@@ -106,7 +113,7 @@ export default function NavigationBar() {
             </div>
             
             <div className="cursor-pointer" onClick={handleColorClick}>
-                Color
+                <img src={colorImg} alt="Color Mode" className="w-[1.5vw]" />
             </div>
         </div>
     )
