@@ -4,7 +4,7 @@ export default function Contact()
 {
     return(
         <div className="flex flex-col items-center justify-center h-[50vh] gap-[2.5em] text-[var(--text-primary)]">
-            <p className="text-[60px]">Contact Me</p>
+            <p className="mt-[10vh] text-[40px]">Contact Me</p>
 
             <form action="">
                 <div className="flex flex-col gap-[2.5em]">
@@ -19,7 +19,7 @@ export default function Contact()
                     </div>
                     <div>
                         <p className="text-[20px]">Message</p>
-                        <input type="text" placeholder="Message" className="h-[3vh] w-[15vw] p-2 border-[var0(--input-border)] border-[0.1rem] rounded-md bg-[var(--input-bg)]"/>
+                        <input type="text" placeholder="Message" className="h-[3vh] w-[15vw] p-2 border-[var(--input-border)] border-[0.1rem] rounded-md bg-[var(--input-bg)]"/>
                     </div>
                     <button type="submit" className="bg-[var(--button-primary)] text-[var(--button-text)] h-[3vh]">Submit</button>
                 </div>
