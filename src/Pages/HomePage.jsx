@@ -14,8 +14,8 @@ export default function HomePage() {
         }
     }
     return(
-        <div className="h-screen">
-            <div className="flex flex-col items-center justify-center mt-[40vh]">
+        <div className="h-[50vh]">
+            <div className="flex flex-col items-center justify-center mt-[38vh]">
                 <p className="text-[40px]">Hello, I'm David.</p>
                 <p className="text-[40px]">I am a passionate Software Engineer.</p>
                 <div className="flex flex-row gap-10 mt-10">

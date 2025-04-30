@@ -10,7 +10,8 @@ import Experience from './Pages/WorkExp'
 function App() {
   return (
     <>
-      <NavigationBar />
+      <div id="beginning"></div>
+      <NavigationBar id="navBar" />
       <div id="home"><HomePage /></div>
       <div id="about"><AboutPage /></div>
       <div id="techStack"><TechStack/></div>
