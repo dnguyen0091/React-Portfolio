@@ -106,6 +106,7 @@ export default function NavigationBar() {
                             <div onClick={() => handleSectionClick('home')}>Landing Page</div>
                             <div onClick={() => handleSectionClick('about')}>About</div>
                             <div onClick={() => handleSectionClick('experience')}>Experience</div>
+                            <div onClick={()=> handleSectionClick('techStack')}>Tech Stack</div>
                             <div onClick={() => handleSectionClick('projects')}>Projects</div>
                             <div onClick={() => handleSectionClick('contact')}>Contact</div>
                         </div>
