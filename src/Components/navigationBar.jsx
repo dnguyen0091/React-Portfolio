@@ -103,7 +103,7 @@ export default function NavigationBar() {
                 <div className={`navigateDropDown absolute top-full left-0 mt-4 gap-[2vh] ${navOpen ? 'block' : 'hidden'}`}>
                     <div>
                         <div className="dropItems flex flex-col gap-[2vh] mt-3 p-2 rounded-lg bg-[var(--secondary)] text-[var(--text-secondary)]">
-                            <div onClick={() => handleSectionClick('home')}>Landing Page</div>
+                            <div onClick={() => handleSectionClick('beginning')}>Landing Page</div>
                             <div onClick={() => handleSectionClick('about')}>About</div>
                             <div onClick={() => handleSectionClick('experience')}>Experience</div>
                             <div onClick={()=> handleSectionClick('techStack')}>Tech Stack</div>
