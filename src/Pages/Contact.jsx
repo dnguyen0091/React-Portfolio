@@ -19,9 +19,9 @@ export default function Contact()
                     </div>
                     <div>
                         <p className="text-[20px]">Message</p>
-                        <input type="text" placeholder="Message" className="h-[3vh] w-[15vw] p-2 border-[var(--input-border)] border-[0.1rem] rounded-md bg-[var(--input-bg)]"/>
+                        <textarea placeholder="Message" className="h-[15vh] w-[15vw] p-2 border-[var0(--input-border)] border-[0.1rem] rounded-md bg-[var(--input-bg)] align-top resize-none"/>
                     </div>
-                    <button type="submit" className="bg-[var(--button-primary)] text-[var(--button-text)] h-[3vh]">Submit</button>
+                    <button type="submit" className="self-end bg-[var(--button-primary)] text-[var(--button-text)] h-[3vh] w-[5vw]">Submit</button>
                 </div>
             </form>
         </div>
