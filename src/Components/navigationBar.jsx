@@ -96,7 +96,7 @@ export default function NavigationBar() {
         navigator.clipboard.writeText("davidnguyen0091@icloud.com");
     }
     return(
-        <div className="flex flex-row justify-between items-center w-[20vw] h-[5vh] z-1000 top-5 left-[40vw] gap-[5vw] border-[var(--tertiary)] border-2 rounded-[40px] bg-[var(--secondary)] p-5 sticky">
+        <div className="flex flex-row justify-between items-center w-[20vw] h-[5vh] z-[1000] top-5 left-[40vw] gap-[5vw] border-[var(--tertiary)] border-2 rounded-[40px] bg-[var(--secondary)] p-5 sticky">
             <div className="dropDown relative cursor-pointer" ref={navRef} onClick={handleNavigateClick}>
                 Navigate
 
