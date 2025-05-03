@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import expressIcon from '../assets/Tech Stack/expressjs.png'
 import gitIcon from '../assets/Tech Stack/git.png'
 import mongoDBIcon from '../assets/Tech Stack/mongodb.png'
@@ -7,22 +8,56 @@ import pythonIcon from '../assets/Tech Stack/python.png'
 import reactIcon from '../assets/Tech Stack/reactjs.png'
 import tailwindIcon from '../assets/Tech Stack/tailwindcss.png'
 
-
 export default function TechStack()
 {
+    const techStack = [
+        {
+            name: "React",
+            icon: reactIcon
+        },
+        {
+            name: "MongoDB",
+            icon: mongoDBIcon
+        },
+        {
+            name: "Node.js",
+            icon: nodeIcon
+        },
+        {
+            name: "Express.js",
+            icon: expressIcon
+        },
+        {
+            name: "Next.js",
+            icon: nextIcon
+        },
+        {
+            name: "Tailwind.css",
+            icon: tailwindIcon
+        },
+        {
+            name: "Git",
+            icon: gitIcon
+        },
+        {
+            name: "Python",
+            icon: pythonIcon
+        }
+    ];
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
     return(
         <div className="flex flex-col justify-center items-center">
             <p className="mt-[10vh] text-[40px]">Current Tech Stack</p>
-
+            
             <div className="grid grid-cols-4 grid-rows-2 gap-[3vw] mt-8">
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={reactIcon} alt="React" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">React</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={mongoDBIcon} alt="MongoDB" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">MongoDB</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={nodeIcon} alt="Node.js" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Node.js</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={expressIcon} alt="Express.js" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Express.js</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={nextIcon} alt="Next.js" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Next.js</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={tailwindIcon} alt="Tailwind" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Tailwind.css</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={gitIcon} alt="git" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Git</p></div>
-                <div className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 rounded-xl bg-[var(--secondary)]"><img src={pythonIcon} alt="Python" className="w-[5vw] h-[5vw] object-contain"/><p className="text-[20px]">Python</p></div>
+                
+                {techStack.map((tech, index) => (
+                <div key={index} className="flex flex-col items-center gap-5 w-[10vw] h-[15vh] border-[var(--tertiary)] border-2 bg-[var(--secondary)]">
+                    <img src={tech.icon} alt={tech.name} className="w-[5vw] h-[5vw] object-contain"/>
+                    <p className="text-[20px]">{tech.name}</p>
+                </div>
+                ))}
             </div>
             
         </div>
