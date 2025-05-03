@@ -3,7 +3,8 @@ import '../index.css';
 export default function Contact()
 {
     return(
-        <div className="flex flex-col items-center justify-center h-[50vh] gap-[2.5em] text-[var(--text-primary)]">
+        
+        <div className="flex flex-col items-center justify-center h-[60vh] gap-[2.5em] text-[var(--text-primary)] mb-10">
             <p className="mt-[10vh] text-[40px]">Contact Me</p>
 
             <form action="">
