@@ -44,12 +44,12 @@ export default function WorkExp() {
     ];
 
     return (
-        <div className="min-h-screen py-20">
+        <div className="min-h-screen">
             <div className="flex flex-col items-center">
                 <motion.h2 
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-[42px] font-bold text-[var(--text-primary)] mb-[8vh]"
+                    className="text-[42px] font-bold text-[var(--text-primary)] mb-[8vh] mt-[10vh]"
                 >
                     Professional Journey
                 </motion.h2>
