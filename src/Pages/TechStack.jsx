@@ -44,7 +44,7 @@ export default function TechStack()
         <div className="flex flex-col justify-center items-center">
             {/* <p className="mt-[10vh] text-[40px]">Current Tech Stack</p> */}
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-[3vw] mt-8 w-[90%] max-w-5xl">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-[3vw] w-[90%] max-w-5xl mt-[10vh]">
                 {techStack.map((tech, index) => (
                     <motion.div
                         key={index}
