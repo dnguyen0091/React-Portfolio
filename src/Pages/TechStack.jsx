@@ -42,7 +42,7 @@ export default function TechStack()
     };
     return(
         <div className="flex flex-col justify-center items-center">
-            <p className="mt-[10vh] text-[40px]">Current Tech Stack</p>
+            {/* <p className="mt-[10vh] text-[40px]">Current Tech Stack</p> */}
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-[3vw] mt-8 w-[90%] max-w-5xl">
                 {techStack.map((tech, index) => (
