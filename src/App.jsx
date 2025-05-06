@@ -15,7 +15,6 @@ function App() {
   return (
     <>
       <VantaBackground/>
-      {/* <div id="vanta"></div> */}
       <NavigationBar id="navBar" />
       <div id="home"><HomePage /></div>
       <div id="about"><AboutPage /></div>
