@@ -1,18 +1,30 @@
 import { useEffect, useRef } from 'react';
 import "../index.css";
+import { useTheme } from './ThemeContext';
 
 export default function VantaBackground() {
     const vantaRef = useRef(null);
-
+    const effectRef = useRef(null);
+    const theme = useTheme();
+    
     useEffect(() => {
-        // Make sure VANTA is available
         if (!window.VANTA) {
             console.error("VANTA not loaded");
             return;
         }
         
-        // Initialize VANTA effect
-        const effect = window.VANTA.BIRDS({
+        // Clean up previous effect
+        if (effectRef.current) {
+            effectRef.current.destroy();
+        }
+        
+        const hexToNumber = (hexColor) => {
+            if (!hexColor.startsWith('#')) return hexColor;
+            return parseInt(hexColor.replace('#', '0x'), 16);
+        };
+        
+        // Create new effect with current theme colors
+        effectRef.current = window.VANTA.BIRDS({
             el: vantaRef.current,
             mouseControls: true,
             touchControls: true,
@@ -21,17 +33,17 @@ export default function VantaBackground() {
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            backgroundColor: 0x111111,
-            color1: 0x3e64ff,
-            color2: 0x86a8e7
+            backgroundColor: hexToNumber(theme.primary),
+            color1: hexToNumber(theme.accent),
+            color2: hexToNumber(theme.accentHover),
+            colorMode: "lerp",
         });
         
-        // Clean up
         return () => {
-            if (effect) effect.destroy();
+            if (effectRef.current) effectRef.current.destroy();
         };
-    }, []);
-
+    }, [theme]); // Re-initialize when theme changes
+    
     return (
         <div 
             ref={vantaRef} 
