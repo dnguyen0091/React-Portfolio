@@ -17,7 +17,7 @@ function App() {
     <ThemeProvider>
       <VantaBackground/>
     </ThemeProvider>
-      
+      <div id="beginning"></div>
       <NavigationBar id="navBar" />
       <div id="home"><HomePage /></div>
       <div id="about"><AboutPage /></div>
