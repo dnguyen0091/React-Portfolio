@@ -37,6 +37,14 @@ export default function VantaBackground() {
             color1: hexToNumber(theme.accent),
             color2: hexToNumber(theme.accentHover),
             colorMode: "lerp",
+
+            quantity: 4,
+            birdsize: 1.00,
+            wingSpan: 10.00,
+            speedLimit: 5.00,
+            separation: 20.00,
+            alignment: 20.00,
+            cohesion: 20.00,
         });
         
         return () => {
