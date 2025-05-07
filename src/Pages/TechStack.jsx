@@ -81,14 +81,22 @@ export default function TechStack()
                         
                         {/* Hover effect */}
                         {hoveredIndex === index && (
-                            <motion.div 
-                                className="absolute inset-0 z-0 pointer-events-none"
-                                initial={{ opacity: 0 }}
-                                animate={{
-                                    opacity: 1,
-                                    background: `radial-gradient(circle 120px at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, var(--accent), transparent)`
-                                }}
-                            />
+                        <motion.div 
+                            className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-[var(--accent-hover)] via-[var(--accent)] to-[var(--accent-hover)]"
+                            initial={{ opacity: 0 }}
+                            animate={{
+                            opacity: 0.3,
+                            backgroundPosition: ['200% 0%', '-100% 0%']
+                            }}
+                            transition={{ 
+                            backgroundPosition: {
+                                duration: 1.5,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }
+                            }}
+                            style={{ backgroundSize: '200% 100%' }}
+                        />
                         )}
                         
                         <motion.div
