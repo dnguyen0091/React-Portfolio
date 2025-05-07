@@ -1,8 +1,14 @@
-import { motion } from "framer-motion"
-import ResuMaker from "../assets/Projects/ResuMaker.png"
-import '../index.css'
+import { motion } from "framer-motion";
+import { useState } from "react";
+import externalLinkIconDark from "../assets/Icons/externalLinkIcon.svg";
+import ResuMaker from "../assets/Projects/ResuMaker.png";
+import '../index.css';
 export default function Projects()
 {
+
+    const [externalLinkIcon, setExternalLinkIcon] = useState(externalLinkIconDark);
+
+    
 
     const projects=[
         {title:"ResuMaker", description:"",img:ResuMaker, link:""},
@@ -13,10 +19,11 @@ export default function Projects()
         {title: "Dragon of Dojima AI", description:"",img:ResuMaker, link:""},
     ]
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen gap-[2.5em] text-[var(--text-primary)]">
+        <div className="min-h-screen">
+            <div className="flex flex-col items-center justify-center  gap-[2.5em] text-[var(--text-primary)]">
             <p className="mt-[10vh] text-[40px]">Projects</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[4rem]">
                 {projects.map((project, index) => (
                     <motion.div 
                     key={index}
@@ -46,19 +53,26 @@ export default function Projects()
                         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
                     }}
                 >
-                        <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-lg border-t-4 border-[var(--accent)] relative flex flex-col items-center w-full aspect-video">
+                        <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-lg border-t-4 border-[var(--accent)] relative flex flex-col items-center w-[20vw] aspect-video">
+                            <img src={project.img} alt={project.title} className="w-full h-auto object-cover mt-4 rounded"/>
                             <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                             <p className="text-sm text-center">{project.description}</p>
-                            <img 
-                                src={project.img} 
-                                alt={project.title} 
-                                className="w-full h-auto object-cover mt-4 rounded"
-                            />
+                            
+                            <div>
+                                
+                                <a className="flex flex-row justify-end items-center" href={project.link}>Source <img src={externalLinkIcon} className="w-[1.5vw] text-[var(--text-primary)]" alt="Send Placeholder" /></a>
+                            </div>
+                            
+                                
+                            
+                            
                             <div className="absolute bottom-0 left-0 w-full h-1 bg-[var(--accent)] origin-bottom scale-x-0 transition-transform group-hover:scale-x-100"></div>
                         </div>
                     </motion.div>
                 ))}
             </div>
         </div>
+        </div>
+        
     )
 }
