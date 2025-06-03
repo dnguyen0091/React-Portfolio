@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import externalLinkIconDark from "../assets/Icons/externalLinkIcon.svg";
+import externalLinkIconLight from "../assets/Icons/externalLinkIconLight.svg";
 import ResuMaker from "../assets/Projects/ResuMaker.png";
 import '../index.css';
 export default function Projects()
@@ -8,6 +9,25 @@ export default function Projects()
 
     const [externalLinkIcon, setExternalLinkIcon] = useState(externalLinkIconDark);
 
+    useEffect(() => {
+        // Initial check
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        setExternalLinkIcon(currentTheme === 'dark' ? externalLinkIconDark : externalLinkIconLight);
+        
+        // Create custom event listener
+        const handleThemeChange = () => {
+            const updatedTheme = localStorage.getItem('theme') || 'dark';
+            setExternalLinkIcon(updatedTheme === 'dark' ? externalLinkIconDark : externalLinkIconLight);
+        };
+        
+        // Add event listener
+        window.addEventListener('themeChange', handleThemeChange);
+        
+        // Clean up event listener
+        return () => {
+            window.removeEventListener('themeChange', handleThemeChange);
+        };
+    }, []);
     
 
     const projects=[

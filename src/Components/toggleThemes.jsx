@@ -42,4 +42,6 @@ export default function toggleThemes(type)
         document.documentElement.style.setProperty('--button-secondary-hover','#d1d5db');
         document.documentElement.style.setProperty('--button-secondary-text','#111827');
     }
+    localStorage.setItem('theme', type);
+    window.dispatchEvent(new Event('themeChange'));
 }
