@@ -31,64 +31,92 @@ export default function Projects()
     
 
     const projects=[
-        {title:"ResuMaker", description:"",img:ResuMaker, link:""},
-        {title:"GainsBot", description:"",img:ResuMaker, link:""},
-        {title:"Buddy Builder", description:"",img:ResuMaker, link:""},
-        {title:"Weather Report", description:"",img:ResuMaker, link:""},
-        {title:"Shogi", description:"",img:ResuMaker, link:""},
-        {title: "Dragon of Dojima AI", description:"",img:ResuMaker, link:""},
+        {title:"ResuMaker", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title:"GainsBot", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title:"Buddy Builder", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title:"Weather Report", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title:"Shogi", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title: "Dragon of Dojima AI", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
     ]
     return (
         <div className="min-h-screen">
             <div className="flex flex-col items-center justify-center  gap-[2.5em] text-[var(--text-primary)]">
-            <p className="mt-[10vh] text-[40px]">Projects</p>
+            <p className="mt-[10vh] mb-[8vh] text-[40px]">Projects</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[4rem]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[8rem]">
                 {projects.map((project, index) => (
                     <motion.div 
                     key={index}
                     initial={{ 
-                        rotateX: 45,   // Start reclined backward (positive angle)
+                        rotateX: 45,
                         opacity: 0,
                         scale: 0.8,
                         y: 50,
-                        transformOrigin: "bottom"  // Rotation origin at bottom of element
+                        transformOrigin: "bottom"
                     }} 
                     whileInView={{ 
-                        rotateX: 0,    // Move to upright position
+                        rotateX: 0,
                         opacity: 1,
                         scale: 1,
                         y: 0 
                     }} 
                     transition={{ 
                         type: "spring", 
-                        stiffness: 70,  // Slightly increased for more "snap"
-                        damping: 15,    // Reduced for more bounce
+                        stiffness: 70,
+                        damping: 15,
                         delay: index * 0.1
                     }} 
                     viewport={{ once: true, amount: 0.3 }} 
-                    className="perspective-[1000px] origin-bottom transform-style-preserve-3d"
+                    className="group perspective-[1000px] origin-bottom transform-style-preserve-3d cursor-pointer"
                     whileHover={{ 
                         y: -10,
                         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
                     }}
                 >
-                        <div className="bg-[var(--secondary)] p-6 rounded-lg shadow-lg border-t-4 border-[var(--accent)] relative flex flex-col items-center w-[20vw] aspect-video">
-                            <img src={project.img} alt={project.title} className="w-full h-auto object-cover mt-4 rounded"/>
-                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                            <p className="text-sm text-center">{project.description}</p>
-                            
-                            <div>
-                                
-                                <a className="flex flex-row justify-end items-center" href={project.link}>Source <img src={externalLinkIcon} className="w-[1.5vw] text-[var(--text-primary)]" alt="Send Placeholder" /></a>
-                            </div>
-                            
-                                
-                            
-                            
-                            <div className="absolute bottom-0 left-0 w-full h-1 bg-[var(--accent)] origin-bottom scale-x-0 transition-transform group-hover:scale-x-100"></div>
+                    <div className="relative bg-[var(--secondary)] rounded-lg shadow-lg border-t-4 border-[var(--accent)] overflow-hidden w-[25vw] aspect-video">
+                        {/* Background Image */}
+                        <img 
+                            src={project.img} 
+                            alt={project.title} 
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        
+                        {/* Title Bar - Always Visible */}
+                        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-4 z-20">
+                            <h3 className="text-lg font-bold text-white">
+                                {project.title}
+                            </h3>
                         </div>
-                    </motion.div>
+                        
+                        {/* Hover Content - Slides up from bottom */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/80 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
+                            <div className="text-white space-y-4">
+                                <p className="text-sm leading-relaxed">
+                                    {project.description}
+                                </p>
+                                
+                                <div className="flex justify-between items-center">
+                                    <a 
+                                        className="flex items-center gap-2 px-4 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent-hover)] transition-colors duration-200 text-sm" 
+                                        href={project.link}
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <span>View Source</span>
+                                        <img 
+                                            src={externalLinkIcon} 
+                                            className="w-4 h-4" 
+                                            alt="External Link" 
+                                        />
+                                    </a>
+                                    
+                                    <div className="text-xs text-white/70">
+                                        Click to explore
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
                 ))}
             </div>
         </div>
