@@ -31,12 +31,12 @@ export default function Projects()
     
 
     const projects=[
-        {title:"ResuMaker", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
-        {title:"GainsBot", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
-        {title:"Buddy Builder", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
-        {title:"Weather Report", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
-        {title:"Shogi", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
-        {title: "Dragon of Dojima AI", description:"test",img:ResuMaker, link:"",tags: ["React", "CSS", "PDF.js"]},
+        {title:"ResuMaker", description:"AI Powered Resume Builder and Analyzer to help new hires navigate the job market.",img:ResuMaker, link:"",tags: ["React", "CSS", "Express.js"]},
+        {title:"GainsBot", description:"AI Powered webapp meant to guide and provide new gym-goers crucial information on exercises to help them get started on a path to a healthier life.",img:ResuMaker, link:"",tags: ["React", "TailWind.CSS", "OpenAI API"]},
+        {title:"Buddy Builder", description:"C.R.U.D webapp that helps users with managing contact information of friends/family.",img:ResuMaker, link:"",tags: ["JavaScript", "HTML/CSS", "MySQL"]},
+        {title:"Weather Report", description:"Webpage that leverages APIs to obtain Weather Data from anywhere in the world.",img:ResuMaker, link:"",tags: ["JavaScript", "HTML/CSS", "VisualCrossing API"]},
+        {title:"Shogi", description:"Japanese board-game, similar to Chess, created with just Python.",img:ResuMaker, link:"",tags: ["Python","Pygame"]},
+        {title: "Dragon of Dojima AI", description:"Fine-tuned AI model trained to mimic video game character Kiryu Kazuma based on game dialogue and character background.",img:ResuMaker, link:"",tags: ["PyTorch", "Mistral7B", "HuggingFace Transformers"]},
     ]
     return (
         <div className="min-h-screen">
@@ -109,8 +109,15 @@ export default function Projects()
                                         />
                                     </a>
                                     
-                                    <div className="text-xs text-white/70">
-                                        Click to explore
+                                    <div className="flex gap-1 flex-wrap">
+                                        {project.tags?.map((tag, tagIndex) => (
+                                            <span 
+                                                key={tagIndex}
+                                                className="px-2 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm border border-white/30"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
