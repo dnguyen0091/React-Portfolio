@@ -15,9 +15,12 @@ export default function WorkExp() {
             role: "CWEP Software Engineer",
             period: "May 2025-Present",
             details: [
-                "Working as a software engineer in the CWEP program"
+                "Shadowing experienced software engineers to understand the software development lifecycle and real-world application deployment",
+                "Collaborating with engineering teams to design, develop, and test software solutions in an agile development environment",
+                "Communicated regularly with product stakeholders to prioritize updates/maintenance and ensure alignment with business goals"
             ],
-            skills: ["React", "JavaScript", "C++", "Embedded Systems"]
+            skills: ["C#", "SQL", ".NET", "razor", "Agile Development",],
+            link: "https://www.lockheedmartin.com/en-us/careers/why-lm/business-areas/eo.html"
         },
         {
             company: "Wicked Bao LLC",
@@ -27,9 +30,10 @@ export default function WorkExp() {
             details: [
                 "Supported dining operations as a high school sophomore",
                 "Advanced to a managerial role",
-                "Maintained consistent seasonal employment for four years"
+                "Maintained consistent seasonal employment for five years"
             ],
-            skills: ["Leadership", "Training", "Operations", "Customer Service"]
+            skills: ["Leadership", "Training", "Operations", "Customer Service"],
+            link: "https://wickedbao.com/"
         },
         {
             company: "Publix Supermarkets",
@@ -39,7 +43,8 @@ export default function WorkExp() {
             details: [
                 "Worked collaboratively with cashiers and other team members"
             ],
-            skills: ["Teamwork", "Communication", "Customer Service"]
+            skills: ["Teamwork", "Communication", "Customer Service"],
+            link: "https://www.publix.com/"
         }
     ];
 
@@ -49,7 +54,7 @@ export default function WorkExp() {
                 <motion.h2 
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-[42px] font-bold text-[var(--text-primary)] mb-[8vh] mt-[10vh]"
+                    className="text-[42px] font-bold text-[var(--text-primary)] mb-[2vh] mt-[10vh]"
                 >
                     Professional Journey
                 </motion.h2>
@@ -82,7 +87,7 @@ export default function WorkExp() {
                                 className="z-10 flex-shrink-0"
                             >
                                 <div className={`h-20 w-20 rounded-full border-4 ${hoveredIndex === index ? 'border-[var(--accent)]' : 'border-[var(--tertiary)]'} bg-white flex items-center justify-center p-3 shadow-lg transition-all duration-300`}>
-                                    <img src={exp.logo} alt={exp.company} className="h-full w-full object-contain" />
+                                    <a href={exp.link} target="_blank"><img src={exp.logo} href="" alt={exp.company} className="h-full w-full object-contain" /></a>
                                 </div>
                             </motion.div>
                             
