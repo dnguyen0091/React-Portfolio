@@ -116,8 +116,8 @@ export default function NavigationBar() {
 
                 <div className={`socialsDropDown absolute top-full left-0 mt-4 ${socialsOpen ? 'block' : 'hidden'}`}>
                     <div className="dropItems flex flex-col w-[12vw] gap-[2vh] mt-3 p-2 rounded-lg bg-[var(--secondary)] text-[var(--text-secondary)]">
-                        <a className="flex flex-row items-center gap-1" href="https://www.linkedin.com/in/dnguyen0091/"><img className="w-[1.5vw] fill-[var(--text-primary)]" src={linkedInIcon} alt="LinkedIn Icon" />LinkedIn</a>
-                        <a className="flex flex-row items-center gap-1" href="https://github.com/dnguyen0091"><img className="w-[1.5vw]" src={gitHubIcon} alt="GitHub Icon" />GitHub</a>
+                        <a className="flex flex-row items-center gap-1" href="https://www.linkedin.com/in/dnguyen0091/" target='_blank'><img className="w-[1.5vw] fill-[var(--text-primary)]" src={linkedInIcon} alt="LinkedIn Icon" />LinkedIn</a>
+                        <a className="flex flex-row items-center gap-1" href="https://github.com/dnguyen0091" target='_blank'><img className="w-[1.5vw]" src={gitHubIcon} alt="GitHub Icon" />GitHub</a>
                         <div className="flex flex-row items-center gap-1" onClick={handleCopyEmail}><img className="w-[1.5vw] text-[var(--text-primary)]" src={emailIcon} alt="Email Icon" />davidnguyen0091@icloud.com</div>
                     </div>
                     
