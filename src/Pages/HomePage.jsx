@@ -101,12 +101,12 @@ export default function HomePage() {
                             Download CV
                         </button>
                     </a>
-                    <button 
-                        className="border-[var(--button-secondary)] border-2 rounded-xl w-[5vw] bg-[var(--button-primary)] text-[var(--button-text)] p-[0.75rem]" 
+                    <a href="https://www.linkedin.com/in/dnguyen0091/" target="_blank"
+                        className="border-[var(--button-secondary)] border-2 rounded-xl w-[5vw] bg-[var(--button-primary)] text-[var(--button-text)] p-[0.75rem] justify-center items-center flex" 
                         onClick={handleContactClick}
                     >
-                        Contact Me
-                    </button>
+                        Connect
+                    </a>
                 </motion.div>
             </div>
         </div>
