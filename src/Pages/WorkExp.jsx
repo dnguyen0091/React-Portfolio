@@ -66,38 +66,16 @@ export default function WorkExp() {
                     {experiences.map((exp, index) => (
                         <motion.div 
                             key={index}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className={`flex items-center mb-16 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                            className="flex justify-center mb-16"
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
-                            {/* Logo circle with pulse effect */}
-                            <motion.div 
-                                whileHover={{ scale: 1.1 }}
-                                animate={hoveredIndex === index ? { 
-                                    boxShadow: ["0 0 0 0 rgba(var(--accent-rgb), 0.7)", "0 0 0 10px rgba(var(--accent-rgb), 0)"],
-                                } : {}}
-                                transition={{ 
-                                    duration: 1.5, 
-                                    repeat: hoveredIndex === index ? Infinity : 0,
-                                }}
-                                className="z-10 flex-shrink-0"
-                            >
-                                <div className={`h-20 w-20 rounded-full border-4 ${hoveredIndex === index ? 'border-[var(--accent)]' : 'border-[var(--tertiary)]'} bg-white flex items-center justify-center p-3 shadow-lg transition-all duration-300`}>
-                                    <a href={exp.link} target="_blank"><img src={exp.logo} href="" alt={exp.company} className="h-full w-full object-contain" /></a>
-                                </div>
-                            </motion.div>
-                            
                             {/* Content card */}
-                            <div 
-                                className={`flex-1 ${index % 2 === 0 ? 'mr-12' : 'ml-12'}`}
-                                style={{
-                                    maxWidth: `${75 + (experiences.length - 1 - index) * 5}%` // Growth effect - earliest roles are smallest
-                                }}
-                            >
+                            <div className="w-full max-w-2xl">
                                 <motion.div 
                                     whileHover={{ 
                                         y: -8,
@@ -106,16 +84,27 @@ export default function WorkExp() {
                                     transition={{ type: "spring", stiffness: 300 }}
                                     className="bg-[var(--secondary)] p-6 rounded-lg shadow-lg border-t-4 border-[var(--accent)] relative"
                                 >
-                                    {/* Arrow pointer */}
-                                    <div 
-                                        className={`absolute top-1/2 -translate-y-1/2 ${
-                                        index % 2 === 0 ? 'right-full mr-3' : 'left-full ml-3'
-                                        } border-8 ${
-                                        index % 2 === 0 
-                                            ? 'border-r-[var(--secondary)] border-l-transparent' 
-                                            : 'border-l-[var(--secondary)] border-r-transparent'
-                                        } border-y-transparent`}
-                                    ></div>
+                                    {/* Logo in top right corner */}
+                                    <motion.div 
+                                        whileHover={{ scale: 1.1 }}
+                                        animate={hoveredIndex === index ? { 
+                                            boxShadow: ["0 0 0 0 rgba(var(--accent-rgb), 0.7)", "0 0 0 10px rgba(var(--accent-rgb), 0)"],
+                                        } : {}}
+                                        transition={{ 
+                                            duration: 1.5, 
+                                            repeat: hoveredIndex === index ? Infinity : 0,
+                                        }}
+                                        className="absolute top-4 right-4 z-10"
+                                    >
+                                        <a href={exp.link} target="_blank" rel="noopener noreferrer">
+                                            <div className={`h-14 w-14 rounded-full border-4 ${hoveredIndex === index ? 'border-[var(--accent)]' : 'border-[var(--tertiary)]'} bg-white flex items-center justify-center p-2 shadow-lg transition-all duration-300`}>
+                                                <img src={exp.logo} alt={exp.company} className="h-full w-full object-contain" />
+                                            </div>
+                                        </a>
+                                    </motion.div>
+
+                                    {/* Arrow pointer pointing to timeline */}
+                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full mr-3 border-8 border-r-[var(--secondary)] border-l-transparent border-y-transparent"></div>
                                     
                                     {/* Role details */}
                                     <span className="uppercase tracking-wider text-xs text-[var(--text-secondary)]">{exp.period}</span>
