@@ -19,46 +19,73 @@ export default function AboutPage() {
     };
 
     return (
-        <div className="h-[50vh]">
+        <div className="min-h-screen py-20">
             <div className="flex flex-col justify-center items-center">
-                <p className="mt-[10vh] text-[40px] text-[var(--text-primary)]">About</p>
-                <div className="flex flex-row items-start justify-center mt-[5vh] gap-[8vw]">
+                <motion.p 
+                    className="mt-[10vh] text-[40px] text-[var(--text-primary)]"
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    About
+                </motion.p>
+                <div className="flex flex-row items-start justify-center mt-[8vh] gap-[6vw] max-w-7xl mx-auto">
                     
                     {/* FAQ Section - Left Side */}
                     <motion.div 
-                        className="w-[28vw]"
+                        className="w-[35vw]"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                             {faqData.map((item, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    initial={{ 
+                                        rotateX: 45,
+                                        opacity: 0,
+                                        scale: 0.8,
+                                        y: 50
+                                    }}
+                                    whileInView={{ 
+                                        rotateX: 0,
+                                        opacity: 1,
+                                        scale: 1,
+                                        y: 0 
+                                    }}
+                                    transition={{ 
+                                        type: "spring", 
+                                        stiffness: 70,
+                                        damping: 15,
+                                        delay: index * 0.1
+                                    }}
                                     viewport={{ once: true }}
                                 >
                                     <motion.div
                                         className={`bg-[var(--secondary)] border border-[var(--border)] rounded-lg overflow-hidden transition-all duration-300 ${
                                             openIndex === index ? 'shadow-xl border-[var(--accent)]' : 'shadow-lg hover:shadow-xl'
                                         }`}
-                                        whileHover={{ scale: 1.01 }}
+                                        whileHover={{ 
+                                            scale: 1.02,
+                                            y: -5,
+                                            boxShadow: "0 20px 25px -5px rgba(124, 58, 237, 0.3)"
+                                        }}
                                     >
                                         {/* Question Header */}
                                         <button
                                             onClick={() => toggleDropdown(index)}
-                                            className="w-full px-4 py-3 text-left flex justify-between items-center hover:bg-[var(--tertiary)] transition-colors duration-200"
+                                            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[var(--tertiary)] transition-colors duration-200"
                                         >
-                                            <h3 className="text-md font-semibold text-[var(--text-primary)]">
+                                            <h3 className="text-lg font-semibold text-[var(--text-primary)]">
                                                 {item.question}
                                             </h3>
                                             <motion.div
                                                 animate={{ rotate: openIndex === index ? 180 : 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="text-[var(--accent)] text-lg font-bold"
+                                                className="text-[var(--accent)] text-xl font-bold"
                                             >
                                                 ▼
                                             </motion.div>
@@ -74,12 +101,12 @@ export default function AboutPage() {
                                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="px-4 pb-3 border-t border-[var(--border)]">
+                                                    <div className="px-6 pb-4 border-t border-[var(--border)]">
                                                         <motion.p
                                                             initial={{ y: -10, opacity: 0 }}
                                                             animate={{ y: 0, opacity: 1 }}
                                                             transition={{ delay: 0.1, duration: 0.3 }}
-                                                            className="text-[var(--text-secondary)] leading-relaxed pt-3 text-sm"
+                                                            className="text-[var(--text-secondary)] leading-relaxed pt-4 text-base"
                                                         >
                                                             {item.answer}
                                                         </motion.p>
@@ -95,17 +122,51 @@ export default function AboutPage() {
 
                     {/* Headshot Section - Right Side */}
                     <motion.div 
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="w-[30vw] flex justify-center"
+                        initial={{ 
+                            rotateX: 45,
+                            opacity: 0,
+                            scale: 0.8,
+                            y: 50
+                        }}
+                        whileInView={{ 
+                            rotateX: 0,
+                            opacity: 1,
+                            scale: 1,
+                            y: 0 
+                        }}
+                        transition={{ 
+                            type: "spring", 
+                            stiffness: 70,
+                            damping: 15,
+                            delay: 0.4
+                        }}
                         viewport={{ once: true }}
                     >
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] rounded-full blur-lg opacity-30"></div>
-                            <img 
+                        <div className="relative w-[28rem] h-[28rem]">
+                            <motion.div 
+                                className="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] rounded-full blur-lg opacity-30"
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                    opacity: [0.3, 0.5, 0.3]
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+                            <motion.img 
                                 src={headshot} 
                                 alt="David Nguyen Headshot" 
-                                className="relative w-[24rem] h-[24rem] rounded-full object-cover border-4 border-[var(--accent)] shadow-2xl"
+                                className="relative w-full h-full rounded-full object-cover border-4 border-[var(--accent)] shadow-2xl cursor-pointer"
+                                whileHover={{ 
+                                    y: -10,
+                                    scale: 1.02,
+                                    filter: "brightness(1.1)",
+                                    borderColor: "var(--accent-hover)"
+                                }}
+                                transition={{ duration: 0.3 }}
                             />
                         </div>
                     </motion.div>
