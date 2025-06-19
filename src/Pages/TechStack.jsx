@@ -166,7 +166,7 @@ export default function TechStack() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                 >
                     <p className="text-[var(--text-secondary)] text-lg">
-                        My technology toolkit for building modern, scalable web applications and solving complex problems.
+                        My current tech stack used to build scalable web applications and solve complex problems.
                     </p>
                 </motion.div>
             </div>

@@ -139,6 +139,7 @@ export default function NavigationBar() {
     const navigationItems = [
         { label: 'Landing Page', section: 'beginning' },
         { label: 'About', section: 'about' },
+        { label: 'Tech Stack', section: 'techStack' },
         { label: 'Experience', section: 'experience' },
         { label: 'Projects', section: 'projects' }
     ];
