@@ -32,7 +32,7 @@ export default function TechStack() {
     };
 
     return (
-        <div className="min-h-screen py-20">
+        <div className="min-h-screen">
             <div className="flex flex-col items-center justify-center gap-[2.5em] text-[var(--text-primary)]">
                 <motion.p 
                     className="mt-[10vh] mb-[8vh] text-[40px]"
@@ -45,7 +45,7 @@ export default function TechStack() {
 
                 {/* Tech Stack Grid */}
                 <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-[8vh]"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}

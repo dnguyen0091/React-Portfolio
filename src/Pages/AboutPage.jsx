@@ -19,7 +19,7 @@ export default function AboutPage() {
     };
 
     return (
-        <div className="min-h-screen py-20">
+        <div className="min-h-screen">
             <div className="flex flex-col justify-center items-center">
                 <motion.p 
                     className="mt-[10vh] text-[40px] text-[var(--text-primary)]"
@@ -30,7 +30,7 @@ export default function AboutPage() {
                 >
                     About
                 </motion.p>
-                <div className="flex flex-row items-start justify-center mt-[8vh] gap-[6vw] max-w-7xl mx-auto">
+                <div className="flex flex-row items-start justify-center mt-[15vh] gap-[6vw] max-w-7xl mx-auto">
                     
                     {/* FAQ Section - Left Side */}
                     <motion.div 
