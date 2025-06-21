@@ -16,6 +16,7 @@ import toggleThemes from './toggleThemes';
 export default function NavigationBar() {
     const [navOpen, setNavOpen] = useState(false);
     const [socialsOpen, setSocialsOpen] = useState(false);
+    const [showCopyNotification, setShowCopyNotification] = useState(false);
 
     const [colorMode, setColorMode] = useState("dark");
     const[colorImg, setColorImg] = useState(moonIcon);
@@ -134,6 +135,13 @@ export default function NavigationBar() {
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText("davidnguyen0091@icloud.com");
+        setShowCopyNotification(true);
+        setSocialsOpen(false);
+        
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+            setShowCopyNotification(false);
+        }, 3000);
     }
 
     const navigationItems = [
@@ -151,35 +159,106 @@ export default function NavigationBar() {
     ];
 
     return(
-        <div className="flex flex-row justify-between items-center w-[20vw] h-[5vh] z-[1000] top-5 left-[40vw] gap-[5vw] border-[var(--tertiary)] border-2 rounded-[5rem] bg-[var(--secondary)] p-5 sticky">
+        <>
+            {/* Copy Email Notification Toast */}
+            <AnimatePresence>
+                {showCopyNotification && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -50, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -50, scale: 0.9 }}
+                        transition={{ 
+                            type: "spring", 
+                            stiffness: 300, 
+                            damping: 20,
+                            duration: 0.4 
+                        }}
+                        className="absolute top-24 left-1/2 transform -translate-x-1/2 z-[9999]"
+                    >
+                        <div className="bg-[var(--secondary)] border border-[var(--border)] rounded-full px-6 py-3 shadow-2xl backdrop-blur-sm flex items-center gap-3">
+                            {/* Success Icon */}
+                            <motion.div
+                                initial={{ scale: 0, rotate: -180 }}
+                                animate={{ scale: 1, rotate: 0 }}
+                                transition={{ delay: 0.1, duration: 0.3 }}
+                                className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center"
+                            >
+                                <svg 
+                                    className="w-3 h-3 text-white" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        strokeWidth={3} 
+                                        d="M5 13l4 4L19 7" 
+                                    />
+                                </svg>
+                            </motion.div>
+                            
+                            {/* Message */}
+                            <motion.span
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.15, duration: 0.3 }}
+                                className="text-[var(--text-primary)] font-medium text-sm"
+                            >
+                                Email copied to clipboard!
+                            </motion.span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <div className="flex flex-row justify-between items-center w-[20vw] h-[5vh] z-[1000] top-5 left-[40vw] gap-[5vw] border-[var(--tertiary)] border-2 rounded-[5rem] bg-[var(--secondary)] p-5 sticky">
             <div className="dropDown relative cursor-pointer" ref={navRef} onClick={handleNavigateClick}>
                 Navigate
 
                 <AnimatePresence>
                     {navOpen && (
                         <motion.div 
-                            className="navigateDropDown absolute top-full left-0 mt-4 gap-[2vh]"
+                            className="navigateDropDown absolute top-full left-0 mt-4 z-50"
                             variants={dropdownVariants}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
                         >
-                            <motion.div className="dropItems flex flex-col gap-[2vh] mt-3 p-2 rounded-lg bg-[var(--secondary)] text-[var(--text-secondary)]">
-                                {navigationItems.map((item, index) => (
-                                    <motion.div
-                                        key={item.section}
-                                        variants={itemVariants}
-                                        custom={index}
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="hidden"
-                                        onClick={() => handleSectionClick(item.section)}
-                                        whileHover={{ x: 5, color: "var(--text-primary)" }}
-                                        className="cursor-pointer transition-colors duration-200"
-                                    >
-                                        {item.label}
-                                    </motion.div>
-                                ))}
+                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[200px]">
+                                {/* Header */}
+                                <div className="px-4 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] border-b border-[var(--border)]">
+                                    <h3 className="text-sm font-semibold text-white">Navigation</h3>
+                                </div>
+                                
+                                {/* Menu Items */}
+                                <div className="py-2">
+                                    {navigationItems.map((item, index) => (
+                                        <motion.div
+                                            key={item.section}
+                                            variants={itemVariants}
+                                            custom={index}
+                                            initial="hidden"
+                                            animate="visible"
+                                            exit="hidden"
+                                            onClick={() => handleSectionClick(item.section)}
+                                            whileHover={{ 
+                                                backgroundColor: "var(--tertiary)",
+                                                x: 8
+                                            }}
+                                            className="px-4 py-3 cursor-pointer transition-all duration-200 flex items-center gap-3 group"
+                                        >
+                                            <motion.div 
+                                                className="w-2 h-2 rounded-full bg-[var(--accent)] opacity-0 group-hover:opacity-100"
+                                                whileHover={{ scale: 1.2 }}
+                                                transition={{ duration: 0.2 }}
+                                            />
+                                            <span className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] font-medium">
+                                                {item.label}
+                                            </span>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </motion.div>
                         </motion.div>
                     )}
@@ -192,37 +271,88 @@ export default function NavigationBar() {
                 <AnimatePresence>
                     {socialsOpen && (
                         <motion.div 
-                            className="socialsDropDown absolute top-full left-0 mt-4"
+                            className="socialsDropDown absolute top-full left-0 mt-4 z-50"
                             variants={dropdownVariants}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
                         >
-                            <motion.div className="dropItems flex flex-col w-[12vw] gap-[2vh] mt-3 p-2 rounded-lg bg-[var(--secondary)] text-[var(--text-secondary)]">
-                                {socialItems.map((item, index) => (
-                                    <motion.div
-                                        key={item.label}
-                                        variants={itemVariants}
-                                        custom={index}
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="hidden"
-                                        whileHover={{ x: 5, color: "var(--text-primary)" }}
-                                        className="cursor-pointer transition-colors duration-200"
-                                    >
-                                        {item.href ? (
-                                            <a className="flex flex-row items-center gap-1" href={item.href} target={item.target}>
-                                                <img className="w-[1.5vw]" src={item.icon} alt={`${item.label} Icon`} />
-                                                {item.label}
-                                            </a>
-                                        ) : (
-                                            <div className="flex flex-row items-center gap-1" onClick={item.onClick}>
-                                                <img className="w-[1.5vw]" src={item.icon} alt={`${item.label} Icon`} />
-                                                {item.label}
-                                            </div>
-                                        )}
-                                    </motion.div>
-                                ))}
+                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[280px]">
+                                {/* Header */}
+                                <div className="px-4 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] border-b border-[var(--border)]">
+                                    <h3 className="text-sm font-semibold text-white">Connect With Me</h3>
+                                </div>
+                                
+                                {/* Social Items */}
+                                <div className="py-2">
+                                    {socialItems.map((item, index) => (
+                                        <motion.div
+                                            key={item.label}
+                                            variants={itemVariants}
+                                            custom={index}
+                                            initial="hidden"
+                                            animate="visible"
+                                            exit="hidden"
+                                            whileHover={{ 
+                                                backgroundColor: "var(--tertiary)",
+                                                x: 8
+                                            }}
+                                            className="px-4 py-3 cursor-pointer transition-all duration-200 group"
+                                        >
+                                            {item.href ? (
+                                                <a 
+                                                    className="flex items-center gap-3" 
+                                                    href={item.href} 
+                                                    target={item.target}
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <motion.div 
+                                                        className="w-8 h-8 rounded-lg bg-[var(--tertiary)] p-1.5 group-hover:bg-[var(--accent)] transition-colors duration-200"
+                                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                                    >
+                                                        <img 
+                                                            className="w-full h-full object-contain" 
+                                                            src={item.icon} 
+                                                            alt={`${item.label} Icon`} 
+                                                        />
+                                                    </motion.div>
+                                                    <div className="flex flex-col">
+                                                        <span className="text-[var(--text-primary)] font-medium group-hover:text-white transition-colors duration-200">
+                                                            {item.label}
+                                                        </span>
+                                                        <span className="text-xs text-[var(--text-secondary)] group-hover:text-gray-300">
+                                                            {item.label === 'LinkedIn' ? 'Professional Network' : 'Code Repository'}
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            ) : (
+                                                <div 
+                                                    className="flex items-center gap-3" 
+                                                    onClick={item.onClick}
+                                                >
+                                                    <motion.div 
+                                                        className="w-8 h-8 rounded-lg bg-[var(--tertiary)] p-1.5 group-hover:bg-[var(--accent)] transition-colors duration-200"
+                                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                                    >
+                                                        <img 
+                                                            className="w-full h-full object-contain" 
+                                                            src={item.icon} 
+                                                            alt={`${item.label} Icon`} 
+                                                        />
+                                                    </motion.div>
+                                                    <div className="flex flex-col">
+                                                        <span className="text-[var(--text-primary)] font-medium group-hover:text-white transition-colors duration-200 text-sm">
+                                                            Copy Email
+                                                        </span>
+                                                        <span className="text-xs text-[var(--text-secondary)] group-hover:text-gray-300 truncate max-w-[200px]">
+                                                            {item.label}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </motion.div>
                         </motion.div>
                     )}
@@ -239,5 +369,6 @@ export default function NavigationBar() {
                 <img src={colorImg} alt="Color Mode" className="w-[1.5vw]" />
             </motion.div>
         </div>
+        </>
     )
 }
