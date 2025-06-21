@@ -224,13 +224,7 @@ export default function NavigationBar() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                        >
-                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[200px]">
-                                {/* Header */}
-                                <div className="px-4 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] border-b border-[var(--border)]">
-                                    <h3 className="text-sm font-semibold text-white">Navigation</h3>
-                                </div>
-                                
+                        >                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[200px]">
                                 {/* Menu Items */}
                                 <div className="py-2">
                                     {navigationItems.map((item, index) => (
@@ -276,13 +270,7 @@ export default function NavigationBar() {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                        >
-                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[280px]">
-                                {/* Header */}
-                                <div className="px-4 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] border-b border-[var(--border)]">
-                                    <h3 className="text-sm font-semibold text-white">Connect With Me</h3>
-                                </div>
-                                
+                        >                            <motion.div className="bg-[var(--secondary)] border border-[var(--border)] rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm min-w-[280px]">
                                 {/* Social Items */}
                                 <div className="py-2">
                                     {socialItems.map((item, index) => (
