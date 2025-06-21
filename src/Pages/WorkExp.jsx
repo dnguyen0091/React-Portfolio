@@ -51,13 +51,14 @@ export default function WorkExp() {
     return (
         <div className="min-h-screen">
             <div className="flex flex-col items-center">
-                <motion.h2 
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                <motion.p 
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
                     className="text-[42px] font-bold text-[var(--text-primary)] mb-[2vh] mt-[10vh]"
                 >
                     Professional Journey
-                </motion.h2>
+                </motion.p>
             
                 <div className="relative max-w-3xl mx-auto">
                     {/* Gradient timeline line */}
@@ -66,10 +67,25 @@ export default function WorkExp() {
                     {experiences.map((exp, index) => (
                         <motion.div 
                             key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            initial={{ 
+                                rotateX: 45,
+                                opacity: 0,
+                                scale: 0.8,
+                                y: 50
+                            }}
+                            whileInView={{ 
+                                rotateX: 0,
+                                opacity: 1,
+                                scale: 1,
+                                y: 0 
+                            }}
+                            transition={{ 
+                                type: "spring", 
+                                stiffness: 70,
+                                damping: 15,
+                                delay: index * 0.1
+                            }}
+                            viewport={{ amount: 0.3 }}
                             className="flex justify-center mb-16"
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
@@ -79,7 +95,8 @@ export default function WorkExp() {
                                 <motion.div 
                                     whileHover={{ 
                                         y: -8,
-                                        boxShadow: "0 10px 30px -15px var(--shadow-color)" 
+                                        scale: 1.02,
+                                        boxShadow: "0 20px 25px -5px rgba(124, 58, 237, 0.3)"
                                     }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                     className="bg-[var(--secondary)] p-6 rounded-lg shadow-lg border-t-4 border-[var(--accent)] relative"

@@ -21,7 +21,14 @@ export default function Projects()
     return (
         <div className="min-h-screen">
             <div className="flex flex-col items-center justify-center  gap-[2.5em] text-[var(--text-primary)]">
-            <p className="mt-[10vh] mb-[8vh] text-[40px]">Projects</p>
+            <motion.p 
+                className="mt-[10vh] mb-[8vh] text-[40px]"
+                initial={{ y: -50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+            >
+                Projects
+            </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[8rem]">
                 {projects.map((project, index) => (
@@ -46,7 +53,7 @@ export default function Projects()
                         damping: 15,
                         delay: index * 0.1
                     }} 
-                    viewport={{ once: true, amount: 0.3 }} 
+                    viewport={{amount: 0.3 }} 
                     className="group perspective-[1000px] origin-bottom transform-style-preserve-3d cursor-pointer"
                     whileHover={{ 
                         y: -10,

@@ -26,7 +26,6 @@ export default function AboutPage() {
                     initial={{ y: -50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
                 >
                     About
                 </motion.p>
@@ -38,7 +37,6 @@ export default function AboutPage() {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        viewport={{ once: true }}
                     >
                         <div className="space-y-4">
                             {faqData.map((item, index) => (
@@ -62,7 +60,6 @@ export default function AboutPage() {
                                         damping: 15,
                                         delay: index * 0.1
                                     }}
-                                    viewport={{ once: true }}
                                 >
                                     <motion.div
                                         className={`bg-[var(--secondary)] border border-[var(--border)] rounded-lg overflow-hidden transition-all duration-300 ${
@@ -141,7 +138,6 @@ export default function AboutPage() {
                             damping: 15,
                             delay: 0.4
                         }}
-                        viewport={{ once: true }}
                     >
                         <div className="relative w-[28rem] h-[28rem]">
                             <motion.div 
