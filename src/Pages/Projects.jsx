@@ -1,18 +1,22 @@
 import { motion } from "framer-motion";
 import externalLinkIcon from "../assets/Icons/externalLinkIcon.svg";
+import BuddyBuilder from "../assets/Projects/buddyBuilder.png";
+import KiryuKaz from "../assets/Projects/kiryuKaz.png";
 import ResuMaker from "../assets/Projects/ResuMaker.png";
+import Shogi from "../assets/Projects/Shogi.png";
+import WeatherReport from "../assets/Projects/weatherReport.png";
 import '../index.css';
 export default function Projects()
 {
     
 
     const projects=[
-        {title:"ResuMaker", description:"AI Powered Resume Builder and Analyzer to help new hires navigate the job market.",img:ResuMaker, link:"",tags: ["React", "CSS", "Express.js"]},
+        {title:"ResuMaker", description:"AI Powered Resume Builder and Analyzer to help new hires navigate the job market.",img:ResuMaker, link:"https://github.com/prasaadjg/ResuMaker-Web-App",tags: ["React", "CSS", "Express.js"]},
         {title:"GainsBot", description:"AI Powered webapp meant to guide and provide new gym-goers crucial information on exercises to help them get started on a path to a healthier life.",img:ResuMaker, link:"",tags: ["React", "TailWind.CSS", "OpenAI API"]},
-        {title:"Buddy Builder", description:"C.R.U.D webapp that helps users with managing contact information of friends/family.",img:ResuMaker, link:"",tags: ["JavaScript", "HTML/CSS", "MySQL"]},
-        {title:"Weather Report", description:"Webpage that leverages APIs to obtain Weather Data from anywhere in the world.",img:ResuMaker, link:"",tags: ["JavaScript", "HTML/CSS", "VisualCrossing API"]},
-        {title:"Shogi", description:"Japanese board-game, similar to Chess, created with just Python.",img:ResuMaker, link:"",tags: ["Python","Pygame"]},
-        {title: "Dragon of Dojima AI", description:"Fine-tuned AI model trained to mimic video game character Kiryu Kazuma based on game dialogue and character background.",img:ResuMaker, link:"",tags: ["PyTorch", "Mistral7B", "HuggingFace Transformers"]},
+        {title:"Buddy Builder", description:"C.R.U.D webapp that helps users with managing contact information of friends/family.",img:BuddyBuilder, link:"https://github.com/prasaadjg/BuddyBuilder",tags: ["JavaScript", "HTML/CSS", "MySQL"]},
+        {title:"Weather Report", description:"Webpage that leverages APIs to obtain Weather Data from anywhere in the world.",img:WeatherReport, link:"https://github.com/dnguyen0091/Weather-Report",tags: ["JavaScript", "HTML/CSS", "VisualCrossing API"]},
+        {title:"Shogi", description:"Japanese board-game, similar to Chess, created with just Python.",img:Shogi, link:"https://github.com/dnguyen0091/Shogi",tags: ["Python","Pygame"]},
+        {title: "Dragon of Dojima AI", description:"Fine-tuned AI model trained to mimic video game character Kiryu Kazuma based on game dialogue and character background.",img:KiryuKaz, link:"",tags: ["PyTorch", "Mistral7B", "HuggingFace Transformers"]},
     ]
     return (
         <div className="min-h-screen">
