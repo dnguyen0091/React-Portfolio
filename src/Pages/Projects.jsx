@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import externalLinkIcon from "../assets/Icons/externalLinkIcon.svg";
 import BuddyBuilder from "../assets/Projects/buddyBuilder.png";
-import GainsBot from "../assets/Projects/gainsBot.png";
+import GainsBot from "../assets/Projects/GainsBot.png";
 import KiryuKaz from "../assets/Projects/kiryuKaz.png";
 import ResuMaker from "../assets/Projects/ResuMaker.png";
 import Shogi from "../assets/Projects/Shogi.png";
