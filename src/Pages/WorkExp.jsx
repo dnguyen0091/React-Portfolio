@@ -349,20 +349,6 @@ export default function WorkExp() {
                     className="flex items-center gap-6 mt-4 text-sm text-[var(--text-secondary)]"
                 >
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-2 rounded-full bg-[var(--accent)]/40"></div>
-                        <span>Past Role</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--link)] relative">
-                            <motion.div
-                                animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0.3, 0.8] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[var(--link)]"
-                            />
-                        </div>
-                        <span>Current Role</span>
-                    </div>
-                    <div className="flex items-center gap-2">
                         <span className="text-[var(--text-tertiary)]">Hover icons for details</span>
                     </div>
                 </motion.div>
