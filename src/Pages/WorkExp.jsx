@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import lockheedLogo from '../assets/Companies/Lockheed.png';
+import openSourceLogo from '../assets/Companies/openSource.svg';
 import publixLogo from '../assets/Companies/Publix.png';
 import wickedBaoLogo from '../assets/Companies/wickedBao.png';
 
@@ -51,15 +52,33 @@ export default function WorkExp() {
             startYear: 2025,
             startMonth: 5,
             endYear: 2026,
-            endMonth: 12,
+            endMonth: 6,
             isCurrentRole: true,
             details: [
-                "Shadowing experienced software engineers to understand the software development lifecycle and real-world application deployment",
-                "Collaborating with engineering teams to design, develop, and test software solutions in an agile development environment",
-                "Communicated regularly with product stakeholders to prioritize updates/maintenance and ensure alignment with business goals"
+                "Engineered an enterprise-level, scalable chat module to centralize communications for 13,000+ global suppliers, streamlining the SDLC for mission-critical contract modification approval workflows",
+                "Leveraged Agile methodologies to collaborate with cross-functional stakeholders and application boards, prioritizing technical debt reduction and feature roadmaps to meet strategic business objectives",
+                "Designed and implemented responsive UI components compliant with WCAG accessibility standards, significantly enhancing the User Experience (UX) and interface reliability for high-security supplier portals"
             ],
-            skills: ["C#", "SQL", ".NET", "Razor", "Agile Development"],
+            skills: ["C#", "SQL", ".NET", "Blazor", "Agile Development"],
             link: "https://www.lockheedmartin.com/en-us/careers/why-lm/business-areas/eo.html"
+        },
+        {
+            company: "Cybersecurity Scoring Engine",
+            logo: openSourceLogo,
+            role: "OSS Software Engineer",
+            period: "Aug 2025 - Present",
+            startYear: 2025,
+            startMonth: 8,
+            endYear: 2026,
+            endMonth: 6,
+            isCurrentRole: true,
+            details: [
+                "Engineered a real-time Observability Dashboard using Python and Redis to provide 1,000+ participants with live machine health telemetry and status updates during high-traffic CTF competitions",
+                "Orchestrated containerized deployment workflows via Docker, automating complex environment setups and reducing the technical barrier for entry for entry-level participants",
+                "Contributed to the OSS repository by identifying and remediating critical security vulnerabilities and performance bottlenecks through rigorous patch management and bug fixes"
+            ],
+            skills: ["Python", "Open Source", "Collaboration", "Cybersecurity"],
+            link: "https://github.com/scoringengine/scoringengine?tab=readme-ov-file"
         }
     ];
 
