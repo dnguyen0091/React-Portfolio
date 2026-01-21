@@ -107,8 +107,8 @@ export default function WorkExp() {
                 </motion.p>
             
                 {/* Horizontal Timeline Container */}
-                <div className="w-full max-w-6xl overflow-x-auto pb-8">
-                    <div className="relative min-w-[900px] mx-auto pt-48 pb-48">
+                <div className="w-[95vw] max-w-[90rem] overflow-x-auto pb-8">
+                    <div className="relative min-w-[60rem] mx-auto h-[70vh]">
                         
                         {/* Year Labels */}
                         <div className="absolute top-1/2 left-0 right-0 flex justify-between px-8 -translate-y-1/2">
@@ -273,7 +273,7 @@ export default function WorkExp() {
                                                         stiffness: 300,
                                                         damping: 25
                                                     }}
-                                                    className={`absolute left-1/2 -translate-x-1/2 w-80 ${
+                                                    className={`absolute left-1/2 -translate-x-1/2 w-[22rem] max-w-[90vw] ${
                                                         isAbove 
                                                             ? 'bottom-full mb-10' 
                                                             : 'top-full mt-10'
