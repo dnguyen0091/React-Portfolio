@@ -107,11 +107,11 @@ export default function WorkExp() {
                 </motion.p>
             
                 {/* Horizontal Timeline Container */}
-                <div className="w-[95vw] max-w-[90rem] overflow-x-auto pb-8">
-                    <div className="relative min-w-[60rem] mx-auto h-[70vh]">
+                <div className="w-full px-8">
+                    <div className="relative w-full min-h-[80vh] py-16">
                         
                         {/* Year Labels */}
-                        <div className="absolute top-1/2 left-0 right-0 flex justify-between px-8 -translate-y-1/2">
+                        <div className="absolute top-1/2 left-[5%] right-[5%] flex justify-between -translate-y-1/2">
                             {years.map((year) => (
                                 <motion.div
                                     key={year}
@@ -127,7 +127,7 @@ export default function WorkExp() {
                         </div>
 
                         {/* Main Timeline Line */}
-                        <div className="absolute top-1/2 left-4 right-4 h-1 bg-gradient-to-r from-[var(--tertiary)] via-[var(--accent)] to-[var(--tertiary)] rounded-full transform -translate-y-1/2"></div>
+                        <div className="absolute top-1/2 left-[5%] right-[5%] h-1 bg-gradient-to-r from-[var(--tertiary)] via-[var(--accent)] to-[var(--tertiary)] rounded-full transform -translate-y-1/2"></div>
 
                         {/* Duration Bars */}
                         {experiences.map((exp, index) => {
@@ -147,8 +147,8 @@ export default function WorkExp() {
                                         ease: "easeOut"
                                     }}
                                     style={{
-                                        left: `calc(${startPercent}% + 16px)`,
-                                        width: `${width}%`,
+                                        left: `calc(5% + ${startPercent * 0.9}%)`,
+                                        width: `${width * 0.9}%`,
                                         top: `calc(50% + ${20 + row * 16}px)`,
                                     }}
                                     className={`absolute h-2 rounded-full origin-left ${
@@ -193,7 +193,7 @@ export default function WorkExp() {
                                         delay: index * 0.15
                                     }}
                                     style={{
-                                        left: `calc(${leftPercent}% + 16px)`,
+                                        left: `calc(5% + ${leftPercent * 0.9}%)`,
                                     }}
                                     className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-10"
                                     onMouseEnter={() => setHoveredIndex(index)}
